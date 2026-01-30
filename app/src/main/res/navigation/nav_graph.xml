@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <!-- Login Fragment - PANTALLA INICIAL -->
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.gymappadmin.presentation.auth.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+
+        <!-- Ir a Registro -->
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+
+        <!-- Ir a Recuperar Contraseña -->
+        <action
+            android:id="@+id/action_loginFragment_to_recoveryPasswordFragment"
+            app:destination="@id/recoveryPasswordFragment" />
+
+    </fragment>
+
+    <!-- Register Fragment -->
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.gymappadmin.presentation.auth.RegisterFragment"
+        android:label="Registro"
+        tools:layout="@layout/fragment_register">
+
+        <!-- Volver a Login -->
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+
+    <!-- Recovery Password Fragment -->
+    <fragment
+        android:id="@+id/recoveryPasswordFragment"
+        android:name="com.example.gymappadmin.presentation.auth.RecoveryPasswordFragment"
+        android:label="Recuperar Contraseña"
+        tools:layout="@layout/fragment_recovery_password">
+
+        <!-- Volver a Login -->
+        <action
+            android:id="@+id/action_recoveryPasswordFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+
+</navigation>
