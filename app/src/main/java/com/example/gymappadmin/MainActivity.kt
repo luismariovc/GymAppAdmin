@@ -8,18 +8,18 @@ import androidx.core.view.WindowInsetsCompat
 
 import android.content.Intent
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.example.gymappadmin.view.LoginActivity
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
-        
-        // Immediately navigate to Login for this example
-        startActivity(Intent(this, LoginActivity::class.java))
-        finish()
-        
-        // Use keepOnScreenCondition if we needed to wait for data load
-        // splashScreen.setKeepOnScreenCondition { ... }
+        setContentView(R.layout.activity_main)
+
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.container, com.example.gymappadmin.view.LoginFragment())
+                .commit()
+        }
     }
 }     
